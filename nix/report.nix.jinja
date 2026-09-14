@@ -1,0 +1,26 @@
+{
+  stdenv,
+  typst,
+  lib,
+  ...
+}:
+stdenv.mkDerivation {
+  pname = "{{ project_slug }}_report";
+  version = "0.0.1";
+  src = ../report;
+  nativeBuildInputs = [ typst ];
+  buildPhase = ''
+    runHook preBuild
+    typst compile report.typ report.pdf
+    runHook postBuild
+  '';
+  installPhase = ''
+    runHook preInstall
+    install -Dm644 report.pdf "$out/{{ project_slug }}_report.pdf"
+    runHook postInstall
+  '';
+  meta = {
+    description = "{{ project_description }}";
+    license = lib.licenses.gpl3Plus;
+  };
+}

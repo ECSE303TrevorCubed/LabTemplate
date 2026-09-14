@@ -1,0 +1,21 @@
+{
+  stdenv,
+  pkg-config,
+  wiringpi,
+  lib,
+  ...
+}:
+stdenv.mkDerivation {
+  pname = "{{ project_slug }}_c";
+  version = "0.0.1";
+  src = ../c;
+  nativeBuildInputs = [
+    pkg-config
+  ];
+  buildInputs = [ wiringpi ];
+  meta = {
+    mainProgram = "{{ project_slug }}";
+    description = "{{ project_description }}";
+    license = lib.licenses.gpl3Plus;
+  };
+}

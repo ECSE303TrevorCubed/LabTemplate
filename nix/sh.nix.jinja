@@ -1,0 +1,17 @@
+{
+  writeShellApplication,
+  wiringpi,
+  lib,
+  ...
+}:
+writeShellApplication {
+  name = "{{ project_slug }}";
+  text = builtins.readFile ../sh/main.sh;
+  runtimeInputs = [
+    wiringpi
+  ];
+  meta = {
+    description = "{{ project_description }}";
+    license = lib.licenses.gpl3Plus;
+  };
+}

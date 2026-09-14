@@ -1,0 +1,4 @@
+# Follow these instructions when using this repo as a template
+
+1. Use this template using the `copier copy gh:ECSE303TrevorCubed/LabTemplate ./your-folder`
+2. Edit `main.sh`, `__main__.py` or `main.c`

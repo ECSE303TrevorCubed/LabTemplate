@@ -1,0 +1,24 @@
+# Questions asked during project creation
+project_name:
+  type: str
+  help: What is the name of your project? (e.g. Lab 1 Blink)
+  default: My Project
+
+project_slug:
+  type: str
+  help: Folder/package name (e.g. lab-1-blink)
+  default: "{{ project_name | lower | replace(' ', '_') }}"
+
+project_description:
+  type: str
+  help: Description for this project
+
+author_names:
+  type: str
+  help: Author's full name
+
+_templates_suffix: ".jinja"
+_exclude:
+  - "README"
+  - ".git"
+  - "copier.yml"
